@@ -1,0 +1,12 @@
+albumentations==1.4.18
+ipykernel==6.29.5
+nibabel==5.2.1
+numpy==2.1.2
+pydicom==3.0.1
+torch==2.4.1
+torchmetrics==1.4.2
+tqdm==4.66.5
+torchvision
+segmentation_models_pytorch
+matplotlib
+opencv-python
