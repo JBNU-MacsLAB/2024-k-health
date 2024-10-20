@@ -31,7 +31,7 @@ model = smp.MAnet(
 )
 model = model.to(device)
 
-file = 'loocv_533_model_complete_state_dict_0100.pth'
+file = 'best_loocv_533_model_complete_state_dict_0100.pth'
 
 # state_dict 로드
 model.load_state_dict(torch.load(file, map_location=device, weights_only=False))
