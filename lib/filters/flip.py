@@ -1,6 +1,7 @@
 import torch
 import numpy as np
 
+
 class FlipLeft:
     def __init__(self):
         pass
@@ -8,8 +9,8 @@ class FlipLeft:
     def apply(self, dicom_tensor):
         dicom_np = dicom_tensor.numpy()
 
-        left_side_mean = np.mean(dicom_np[:, :dicom_np.shape[1] // 2])
-        right_side_mean = np.mean(dicom_np[:, dicom_np.shape[1] // 2:])
+        left_side_mean = np.mean(dicom_np[:, : dicom_np.shape[1] // 2])
+        right_side_mean = np.mean(dicom_np[:, dicom_np.shape[1] // 2 :])
 
         flip_applied = False
 

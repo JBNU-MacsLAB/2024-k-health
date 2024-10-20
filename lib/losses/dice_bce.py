@@ -1,6 +1,7 @@
 import torch.nn.functional as F
 import torch.nn as nn
 
+
 class DiceBCELoss(nn.Module):
     def __init__(self, weight=None, size_average=True):
         super(DiceBCELoss, self).__init__()
@@ -14,8 +15,10 @@ class DiceBCELoss(nn.Module):
         targets = targets.view(-1)
 
         intersection = (inputs * targets).sum()
-        dice_loss = 1 - (2. * intersection + smooth) / (inputs.sum() + targets.sum() + smooth)
-        BCE = F.binary_cross_entropy(inputs, targets, reduction='mean')
+        dice_loss = 1 - (2.0 * intersection + smooth) / (
+            inputs.sum() + targets.sum() + smooth
+        )
+        BCE = F.binary_cross_entropy(inputs, targets, reduction="mean")
         Dice_BCE = BCE + dice_loss
 
         return Dice_BCE

@@ -13,6 +13,7 @@ import numpy as np
 from albumentations import Compose
 from lib.filters import CLAHE, FlipLeft
 
+
 class DicomNii2DDataset(Dataset):
     """
     DicomNii2DDataset 클래스는 DICOM 파일과 NIfTI 파일을 읽어와 2D 이미지와 라벨을 반환하는 PyTorch Dataset입니다.
@@ -21,9 +22,9 @@ class DicomNii2DDataset(Dataset):
     def __init__(
         self,
         root_path: str,  # root_path: DICOM 및 NIfTI 파일이 저장된 루트 경로
-        transform: (
-                Optional[Compose]
-        ) = None,  # transform: 데이터 증강에 사용할 albumentations 변환 (선택적)
+        transform: Optional[
+            Compose
+        ] = None,  # transform: 데이터 증강에 사용할 albumentations 변환 (선택적)
     ):
         self.dicom_dir = os.path.join(root_path, "image/abnormal")
         self.nii_dir = os.path.join(root_path, "label/nii")
@@ -92,12 +93,12 @@ class DicomNii2DDataset(Dataset):
         nii_tensor = torch.from_numpy(nii_array)
 
         # Filter -----------------------------
-        dicom_tensor, flip_applied = FlipLeft().apply(dicom_tensor) # Flip Left
+        dicom_tensor, flip_applied = FlipLeft().apply(dicom_tensor)  # Flip Left
 
         if flip_applied:
             nii_tensor = torch.from_numpy(np.fliplr(nii_tensor.numpy()).copy())
 
-        dicom_tensor = CLAHE().apply(dicom_tensor) # CLAHE Filter
+        dicom_tensor = CLAHE().apply(dicom_tensor)  # CLAHE Filter
 
         # DICOM 이미지 텐서와 NIfTI 마스크 텐서를 반환
         return dicom_tensor, nii_tensor
