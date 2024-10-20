@@ -13,6 +13,7 @@
 4. test &rarr; ```python test.py```
 
 ## Best Model
+download trained model: [loocv_533_model_complete_state_dict_0100.pth](https://drive.google.com/file/d/1m_AcJAZhG2HZR25RDZgweXKAtJj2otao/view?usp=sharing)
 
 ```
 BATCH_SIZE = 64
