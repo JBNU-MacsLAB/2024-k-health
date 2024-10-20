@@ -16,10 +16,10 @@ num_epochs = 100
 learning_rate = 1e-3
 ```
 
-LOOCV Fold 89/200
-- val GDS = 0.9410760402679443
-- val mIoU = 0.8887096643447876
-- val score(GDS+mIoU) = 1.829785704612732
+LOOCV Fold 115/200
+- val GDS = 0.9488313794136047
+- val mIoU = 0.9026442170143127
+- val score(GDS + mIoU) = 1.8514755964279175
 
 ## Structure
 
