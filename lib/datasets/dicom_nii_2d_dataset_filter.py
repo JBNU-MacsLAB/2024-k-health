@@ -11,7 +11,7 @@ import torch
 from torch.utils.data import Dataset
 import numpy as np
 from albumentations import Compose
-from lib.filters import clahe, flip_left
+from lib.filters import CLAHE, FlipLeft
 
 class DicomNii2DDataset(Dataset):
     """
@@ -92,12 +92,12 @@ class DicomNii2DDataset(Dataset):
         nii_tensor = torch.from_numpy(nii_array)
 
         # Filter -----------------------------
-        dicom_tensor, flip_applied = flip_left(dicom_tensor) # Flip Left
+        dicom_tensor, flip_applied = FlipLeft().apply(dicom_tensor) # Flip Left
 
         if flip_applied:
             nii_tensor = torch.from_numpy(np.fliplr(nii_tensor.numpy()).copy())
 
-        dicom_tensor = clahe(dicom_tensor) # CLAHE Filter
+        dicom_tensor = CLAHE().apply(dicom_tensor) # CLAHE Filter
 
         # DICOM 이미지 텐서와 NIfTI 마스크 텐서를 반환
         return dicom_tensor, nii_tensor

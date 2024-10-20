@@ -3,7 +3,7 @@ from torch.utils.data import DataLoader
 import albumentations as A
 import segmentation_models_pytorch as smp
 from lib.datasets.dicom_nii_2d_dataset_filter import DicomNii2DDataset
-from .run import evaluate
+from run import evaluate
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print(device)

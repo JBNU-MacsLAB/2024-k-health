@@ -4,7 +4,7 @@ import albumentations as A
 import segmentation_models_pytorch as smp
 from lib.datasets.dicom_nii_2d_dataset_filter import DicomNii2DDataset
 from lib.metrics.score import evaluate_model
-from .run import train
+from run import train
 import matplotlib.pyplot as plt
 import os
 

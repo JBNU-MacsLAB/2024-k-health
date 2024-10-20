@@ -1,12 +1,16 @@
 # Team 533
 
 ## How to Use
-1. set environment &rarr; ```pip install -r requirements.txt```
-2. model train &rarr; ```python train.py```
+0. put dataset dir
+1. activate conda environment
+   1. ```conda create -n <env_name> python=3.10```
+   2. ```conda activate <env_name>```
+2. set environment &rarr; ```pip install -r requirements.txt```
+3. model train &rarr; ```python train.py```
     - model: MA-Net(https://ieeexplore.ieee.org/abstract/document/9201310)
     - encoder: MobileNet V2(https://arxiv.org/abs/1801.04381)
     - encoder weights: ImageNet(https://ieeexplore.ieee.org/document/5206848)
-3. test &rarr; ```python test.py```
+4. test &rarr; ```python test.py```
 
 ## Best Model
 
