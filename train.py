@@ -7,6 +7,8 @@ from lib.metrics.score import evaluate_model
 from run import train
 import matplotlib.pyplot as plt
 import os
+import matplotlib
+matplotlib.use('Agg')
 
 graph_dir = "./graph"
 if not os.path.exists(graph_dir):
